@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-__author__ = 'shouke'
 
 import urllib.request
 import http.cookiejar
