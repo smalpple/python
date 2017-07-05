@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-__author__ = 'shouke'
 
 import  unittest
 # 测试用例(组)类
