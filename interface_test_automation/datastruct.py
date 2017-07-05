@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-__author__ = 'shouke'
 
 # 定义结构体
 class DataStruct:
