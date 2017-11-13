@@ -11,21 +11,28 @@ class crapy_moive():
     def start(self):
         res = requests.get(self.url)
         html = etree.HTML(res.text)
-        result = html.xpath('//ul[@class=pagination]//li[last()]/a/@href')
         result1 = html.xpath('//ul[@class="pagination"]//li[last()]/a/@href')
-        list = ['/tag/喜剧/228?o=date']
-        x = re.findall('d')
+        number = int("".join(re.findall('\d',str(result1))))
+        if number > 0:
+            for i in range(1,number+1):
+                page_url = self.url + str(i) + '?o=data'
+                page_res = requests.get(page_url)
+                page_html = etree.HTML(page_res.text)
+                page_result = page_html.xpath('//ul[@class="list-unstyled mlist"]/li//h4/a/@href')
+                for i in page_result:
+                    x = 'http://'+self.url.split("/")[2]+i
+                    print(x)
+                    exit("debug")
+
+
+
+
 
 
 if __name__ == "__main__":
-    # path = os.path.abspath(os.curdir) + "/good/yes"
-    # if os.path.exists(path):
-    #     pass
-    # os.makedirs(path)
-    # print(path)
-    # x = crapy_moive()
-    # x.start()
-    list = ['/tag/喜剧/228?o=date']
-    a = re.findall('\d',str(list))
-    number = int("".join(a))
-    print(number)
+
+    x = crapy_moive()
+    x.start()
+
+
+
