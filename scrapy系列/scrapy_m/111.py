@@ -22,7 +22,7 @@ class crapy_moive():
                 for i in page_result:
                     x = 'http://'+self.url.split("/")[2]+i
                     print(x)
-                    exit("debug")
+
 
 
 
