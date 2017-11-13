@@ -13,6 +13,7 @@ class movie87_spider(scrapy.Spider):
         movie_info = response.meta['movie_info']
 
 
+
     def parse_page(self,response):
         movies = response.xpath('//ul[@class="list-unstyled mlist"]/li//h4/a/@href').extract()
         url_host = 'http://' + response.url.split('/')[2]
