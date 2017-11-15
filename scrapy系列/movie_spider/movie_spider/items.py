@@ -7,12 +7,9 @@
 
 import scrapy
 
-
 class MovieSpiderItem(scrapy.Item):
-    # define the fields for your item here like:
+    # 下面定义四个的原因是：该项目开始时，爬取目标就是标题、图片、描述和下载链接
     name = scrapy.Field()
     pic = scrapy.Field()
     content = scrapy.Field()
     download = scrapy.Field()
-
-

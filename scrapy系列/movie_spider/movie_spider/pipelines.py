@@ -8,14 +8,18 @@ import json
 import codecs
 
 class MovieSpiderPipeline(object):
+    # def process_item(self, item, spider):
+    #     return item
+
     def __init__(self):
-        self.file = open('moive_info.json','w',encoding='utf-8')
+        self.file = codecs.open(
+            'movie_info.json', 'w', encoding='utf-8')
 
     def process_item(self, item, spider):
         item['content'] = item['content'][-2]
-        line = json.dump(dict(item),ensure_ascii=False) + '\n'
+        line = json.dumps(dict(item), ensure_ascii=False) + "\n"
         self.file.write(line)
         return item
 
-    def spider_close(self):
+    def spider_closed(self, spider):
         self.file.close()
