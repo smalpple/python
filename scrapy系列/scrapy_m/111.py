@@ -21,14 +21,15 @@ class crapy_moive():
                 page_result = page_html.xpath('//ul[@class="list-unstyled mlist"]/li//h4/a/@href')
                 for i in page_result:
                     x = 'http://'+self.url.split("/")[2]+i
+                    print(x)
                     movie_res = requests.get(x)
                     movie_html = etree.HTML(movie_res.text)
                     movie_title = movie_html.xpath('//div[@class="white-div"]//h3/text()')
                     movie_photo = movie_html.xpath('//div[@class="thumbnail"]//img/@src')
                     movie_desc = movie_html.xpath('//div[@class="white-div"]//div[@class="col-md-8"]/text()')
+                    movie_href = movie_html.xpath('//div[@class="panel-body"]/ul/li/a/@href')
 
-
-                    print(movie_desc)
+                    print(movie_href)
                     exit(0)
 
 

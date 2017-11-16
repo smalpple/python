@@ -11,7 +11,7 @@ class movie87_spider(scrapy.Spider):
         movie_info['name'] = response.xpath('//div[@class="white-div"]//h3/text()').extract()
         movie_info['pic'] = response.xpath('//div[@class="white-div"]//img/@src').extract()
         movie_info['content'] = response.xpath('//div[@class="white-div"]//div[@class="col-md-8"]/text()').extract()
-        movie_info['download'] = response.xpath('//div[@id="down1"]/div[@class="panel-body"]/ul/li/a/@href').extract()
+        movie_info['download'] = response.xpath('//div[@class="panel-body"]/ul/li/a/@href').extract()
         return movie_info
 
     def parse_page(self, response):
