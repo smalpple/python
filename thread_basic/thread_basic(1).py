@@ -1,5 +1,6 @@
 from time import ctime,sleep
 import threading
+####创建Thread 的实例，传给它一个函数
 
 loops = [4,2]
 
