@@ -19,8 +19,8 @@ def getRanking(isbn):
     page = requests.get("%s%s" %(AMZN, isbn)).text
     soup = BeautifulSoup(page,"lxml")
     # print(soup)
-    # #print(soup.find_all(compile("Kindle商店商品里排第\d,\d\d\d名")))
-    #print(re.findall("Kindle商店商品里排第\S*名",soup.text))
+    # print(soup.find_all(compile("Kindle商店商品里排第\d,\d\d\d名")))
+    # print(re.findall("Kindle商店商品里排第\S*名",soup.text))
     return ('').join(re.findall("排第\S*名",soup.text))
 
 def _showRanking(isbn):
