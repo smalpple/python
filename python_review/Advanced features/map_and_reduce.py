@@ -1,4 +1,5 @@
 from functools import reduce
+from math import pow
 DIGITS = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
 
 def char2num(s):
@@ -26,3 +27,18 @@ if prod([3, 5, 7, 9]) == 945:
     print('测试成功!')
 else:
     print('测试失败!')
+
+
+def str2float(s):
+    string = s.split('.')[0]    ##分割字符串，小数点之前的
+    string1 = s.split('.')[1]   ##分割字符串，小数点之后的
+    ## math.pow(x,y) 返回x的y次方值
+    return reduce(lambda x,y:x*10+y,map(int,string))+reduce(lambda x,y:x*10+y,map(int,string1))/pow(10,len(string1))
+
+print('str2float(\'123.4567\') =', str2float('123.4567'))
+if abs(str2float('123.4567') - 123.4567) < 0.00001:
+    print('测试成功!')
+else:
+    print('测试失败!')
+# s = "123.456"
+# print(s.split('.')[1])
