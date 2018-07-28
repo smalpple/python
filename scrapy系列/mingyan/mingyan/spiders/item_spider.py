@@ -1,3 +1,4 @@
+#author=BY
 import scrapy
 
 class itemSpider(scrapy.Spider):
