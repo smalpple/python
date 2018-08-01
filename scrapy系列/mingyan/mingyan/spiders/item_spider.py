@@ -1,4 +1,4 @@
-#author=by
+
 import scrapy
 
 class itemSpider(scrapy.Spider):
@@ -20,3 +20,8 @@ class itemSpider(scrapy.Spider):
             f.write('\n')
             f.write('标签：'+tags)
             f.close()
+
+        next_page = response.css('li.next a::attr(href)').extract_first()
+        if next_page is not None:
+            next_page = response.urljoin(next_page)
+            yield scrapy.Request(next_page,callback=self.parse)
