@@ -2,10 +2,11 @@
 
 import sys 
 
-def compute_money(money):
-	money = money - 3500
+def compute_money(money1):
+	other_monet = money1*0.08+money1*0.02+money1*0.005+money1*0.06
+	money = money1 - 3500 - other_monet
 	tax = 0
-	if money <= 1500:
+	if money <= 1500 and money >= 0:
 		tax = money * 0.03
 	elif money > 1500 and money <= 4500:
 		tax = money * 0.1 - 105
@@ -21,16 +22,24 @@ def compute_money(money):
 		tax = money * 0.45 - 13505
 	if tax <= 0 :
 		tax = 0
+	tax = int(money1) - tax -other_monet
 	tax=format(tax,'.2f')
+
 	return tax
 
 
 if __name__ == '__main__':
-	money = sys.argv[1]
-	#print(money)
-	try:
-		money = int(money)
-		print(compute_money(money))
-	except:
-		print('Parameter Error')
+	#rint(compute_money(3500))
+	for arg in sys.argv[1:]:
+		#print(money)
+		num = arg.split(':')[0]
+		money = arg.split(':')[1]
+		#print(num,money)
+		try:
+			#num = int(num)
+			money = int(money)
+			#print(compute_money(money))
+			print(str(num)+':'+str(compute_money(money)))
+		except:
+			print('Parameter Error')
 
